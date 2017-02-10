@@ -34,6 +34,8 @@ def mtld_calc(word_array, ttr_threshold):
 
 # MTLD implementation
 def mtld(word_array, ttr_threshold=0.72):
+    if isinstance(word_array, str):
+        raise ValueError("Input should be a list of strings, rather than a string. Try using string.split()")
     if len(word_array) < 50:
         raise ValueError("Input word list should be at least 50 in length")
     return (mtld_calc(word_array, ttr_threshold) + mtld_calc(word_array[::-1], ttr_threshold)) / 2
@@ -69,6 +71,8 @@ def hypergeometric(population, population_successes, sample, sample_successes):
     
 # HD-D implementation
 def hdd(word_array, sample_size=42.0):
+    if isinstance(word_array, str):
+        raise ValueError("Input should be a list of strings, rather than a string. Try using string.split()")
     if len(word_array) < 50:
         raise ValueError("Input word list should be at least 50 in length")
 
